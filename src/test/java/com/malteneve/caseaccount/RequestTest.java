@@ -1,6 +1,7 @@
 package com.malteneve.caseaccount;
 
 import com.malteneve.caseaccount.domain.Account;
+import com.malteneve.caseaccount.returnData.ReturnData;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,9 +20,9 @@ public class RequestTest {
 
 	@Test
 	void greetingShouldReturnDefaultMessage() throws Exception {
-		Account account = this.restTemplate.getForObject("http://localhost:" + port + "/create?name=test",
-				Account.class);
-		assertThat(account.getId()).isEqualTo("test");
-		assertThat(account.getAmount()).isEqualTo(0.);
+		ReturnData data = this.restTemplate.getForObject("http://localhost:" + port + "/create?name=test",
+				ReturnData.class);
+		assertThat(data.getMessage()).matches(s -> s.contains("test"));
+		assertThat(data.getMessage()).matches(s -> s.contains(": 0"));
 	}
 }
