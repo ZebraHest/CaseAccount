@@ -20,7 +20,7 @@ public class RequestTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void testAPI() throws Exception {
+    void testAPI() {
         //Create Accounts
         AccountReturnData data1 = this.restTemplate.getForObject(
                 "http://localhost:" + port + "/create?name=testapi1",

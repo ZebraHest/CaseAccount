@@ -4,14 +4,10 @@ import java.time.LocalDateTime;
 
 public class AccountReturnData extends ReturnData {
 
-    private String uid;
-    private String id;
-    private Double amount;
-    private LocalDateTime dateTime;
-
-    public AccountReturnData(String message) {
-        super(message);
-    }
+    private final String uid;
+    private final String id;
+    private final Double amount;
+    private final LocalDateTime dateTime;
 
     public AccountReturnData(String message, String uid, String id, Double amount, LocalDateTime dateTime) {
         super(message);
