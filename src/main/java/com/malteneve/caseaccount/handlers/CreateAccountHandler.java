@@ -25,6 +25,9 @@ public class CreateAccountHandler extends Handler<CreateData, ReturnData> {
     protected ReturnData handleRequest(CreateData data) {
         Account account = new Account(data.getId(), data.getAmount());
         Datamanager.addAccount(account);
-        return new AccountReturnData("Account created", account);
+        return new AccountReturnData("Account created", account.getUid(),
+                account.getId(),
+                account.getAmount(),
+                account.getDateTime());
     }
 }

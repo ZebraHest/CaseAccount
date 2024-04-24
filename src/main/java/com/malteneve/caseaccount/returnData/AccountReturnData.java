@@ -1,7 +1,5 @@
 package com.malteneve.caseaccount.returnData;
 
-import com.malteneve.caseaccount.domain.Account;
-
 import java.time.LocalDateTime;
 
 public class AccountReturnData extends ReturnData {
@@ -15,16 +13,12 @@ public class AccountReturnData extends ReturnData {
         super(message);
     }
 
-    public AccountReturnData(String message, Account account) {
+    public AccountReturnData(String message, String uid, String id, Double amount, LocalDateTime dateTime) {
         super(message);
-        this.uid = account.getUid();
-        this.id = account.getId();
-        this.amount = account.getAmount();
-        this.dateTime = account.getDateTime();
-    }
-
-    public AccountReturnData(Account account) {
-        this("", account);
+        this.uid = uid;
+        this.id = id;
+        this.amount = amount;
+        this.dateTime = dateTime;
     }
 
     public String getUid() {
