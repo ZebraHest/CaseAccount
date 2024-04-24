@@ -1,4 +1,4 @@
-package com.malteneve.caseaccount;
+package com.malteneve.caseaccount.unittest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

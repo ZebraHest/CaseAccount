@@ -1,4 +1,4 @@
-package com.malteneve.caseaccount;
+package com.malteneve.caseaccount.unittest;
 
 import com.malteneve.caseaccount.requestData.RequestData;
 import com.malteneve.caseaccount.returnData.AccountListReturnData;
