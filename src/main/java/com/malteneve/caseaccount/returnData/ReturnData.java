@@ -1,7 +1,7 @@
 package com.malteneve.caseaccount.returnData;
 
 public class ReturnData {
-    private String message;
+    private final String message;
 
     public ReturnData(String message) {
         this.message = message;

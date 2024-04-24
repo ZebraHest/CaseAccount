@@ -1,6 +1,6 @@
 package com.malteneve.caseaccount.unittest;
 
-import com.malteneve.caseaccount.datamanager.Datamanager;
+import com.malteneve.caseaccount.datamanager.DataManager;
 import com.malteneve.caseaccount.requestData.TransferData;
 import com.malteneve.caseaccount.returnData.AccountReturnData;
 import com.malteneve.caseaccount.returnData.ErrorReturnData;
@@ -23,8 +23,8 @@ public class TransferUnitTest extends UnitTest {
         TransferData transferData = new TransferData(fromUid, toUid, 500.);
         TransferReturnData returnData = (TransferReturnData) transferHandler.handle(transferData);
 
-        Double amountFromAfter = Datamanager.getAccount(fromUid).getAmount();
-        Double amountToAfter = Datamanager.getAccount(toUid).getAmount();
+        Double amountFromAfter = DataManager.getAccount(fromUid).getAmount();
+        Double amountToAfter = DataManager.getAccount(toUid).getAmount();
 
         assertThat(amountFromAfter).isEqualTo(1500.);
         assertThat(amountToAfter).isEqualTo(2500.);

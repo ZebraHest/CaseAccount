@@ -4,11 +4,11 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Transfer {
-    private String uid;
-    private String fromId;
-    private String toId;
-    private Double amount;
-    private LocalDateTime dateTime;
+    private final String uid;
+    private final String fromId;
+    private final String toId;
+    private final Double amount;
+    private final LocalDateTime dateTime;
 
 
     public Transfer(String fromId, String toId, Double amount) {

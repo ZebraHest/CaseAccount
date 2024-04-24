@@ -1,7 +1,8 @@
 package com.malteneve.caseaccount.handlers;
 
-import com.malteneve.caseaccount.datamanager.Datamanager;
+import com.malteneve.caseaccount.datamanager.DataManager;
 import com.malteneve.caseaccount.domain.Account;
+import com.malteneve.caseaccount.exception.ValidationException;
 import com.malteneve.caseaccount.requestData.CreateData;
 import com.malteneve.caseaccount.returnData.AccountReturnData;
 import com.malteneve.caseaccount.returnData.ReturnData;
@@ -24,7 +25,7 @@ public class CreateAccountHandler extends Handler<CreateData, ReturnData> {
     @Override
     protected ReturnData handleRequest(CreateData data) {
         Account account = new Account(data.getId(), data.getAmount());
-        Datamanager.addAccount(account);
+        DataManager.addAccount(account);
         return new AccountReturnData("Account created", account.getUid(),
                 account.getId(),
                 account.getAmount(),

@@ -2,8 +2,8 @@ package com.malteneve.caseaccount.requestData;
 
 public class CreateData extends RequestData {
 
-    private String id;
-    private Double amount;
+    private final String id;
+    private final Double amount;
 
     public CreateData(String id, Double amount) {
         this.id = id;
@@ -14,15 +14,7 @@ public class CreateData extends RequestData {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public Double getAmount() {
         return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
     }
 }
