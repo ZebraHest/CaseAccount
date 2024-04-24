@@ -3,7 +3,7 @@ package com.malteneve.caseaccount.handlers;
 import com.malteneve.caseaccount.datamanager.Datamanager;
 import com.malteneve.caseaccount.domain.Account;
 import com.malteneve.caseaccount.requestData.CreateData;
-import com.malteneve.caseaccount.returnData.CreateAccountReturnData;
+import com.malteneve.caseaccount.returnData.AccountReturnData;
 import com.malteneve.caseaccount.returnData.ReturnData;
 
 public class CreateAccountHandler extends Handler<CreateData, ReturnData> {
@@ -17,7 +17,7 @@ public class CreateAccountHandler extends Handler<CreateData, ReturnData> {
     }
 
     @Override
-    protected void complexValidation(CreateData data) throws ValidationException{
+    protected void complexValidation(CreateData data) throws ValidationException {
 
     }
 
@@ -25,6 +25,6 @@ public class CreateAccountHandler extends Handler<CreateData, ReturnData> {
     protected ReturnData handleRequest(CreateData data) {
         Account account = new Account(data.getId(), data.getAmount());
         Datamanager.addAccount(account);
-        return new CreateAccountReturnData("Account created", account.getUid(), account.getId(), account.getAmount());
+        return new AccountReturnData("Account created", account);
     }
 }
