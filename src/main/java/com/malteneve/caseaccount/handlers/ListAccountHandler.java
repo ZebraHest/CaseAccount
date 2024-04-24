@@ -1,6 +1,6 @@
 package com.malteneve.caseaccount.handlers;
 
-import com.malteneve.caseaccount.databaseish.Databaseish;
+import com.malteneve.caseaccount.datamanager.Datamanager;
 import com.malteneve.caseaccount.domain.Account;
 import com.malteneve.caseaccount.requestData.RequestData;
 import com.malteneve.caseaccount.returnData.AccountListReturnData;
@@ -20,7 +20,7 @@ public class ListAccountHandler extends Handler<RequestData, ReturnData> {
 
     @Override
     protected ReturnData handleRequest(RequestData data) {
-        List<Account> accounts = Databaseish.getAccounts();
+        List<Account> accounts = Datamanager.getAccounts();
         return new AccountListReturnData("List of Accounts", accounts);
     }
 }

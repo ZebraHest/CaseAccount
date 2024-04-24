@@ -1,6 +1,6 @@
 package com.malteneve.caseaccount.handlers;
 
-import com.malteneve.caseaccount.databaseish.Databaseish;
+import com.malteneve.caseaccount.datamanager.Datamanager;
 import com.malteneve.caseaccount.domain.Account;
 import com.malteneve.caseaccount.requestData.CreateData;
 import com.malteneve.caseaccount.returnData.CreateAccountReturnData;
@@ -24,7 +24,7 @@ public class CreateAccountHandler extends Handler<CreateData, ReturnData> {
     @Override
     protected ReturnData handleRequest(CreateData data) {
         Account account = new Account(data.getId(), data.getAmount());
-        Databaseish.addAccount(account);
+        Datamanager.addAccount(account);
         return new CreateAccountReturnData("Account created", account.getUid(), account.getId(), account.getAmount());
     }
 }

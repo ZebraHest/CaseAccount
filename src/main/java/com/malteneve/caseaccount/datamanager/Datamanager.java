@@ -1,4 +1,4 @@
-package com.malteneve.caseaccount.databaseish;
+package com.malteneve.caseaccount.datamanager;
 
 import com.malteneve.caseaccount.domain.Account;
 import com.malteneve.caseaccount.domain.Transfer;
@@ -6,7 +6,7 @@ import com.malteneve.caseaccount.domain.Transfer;
 import java.util.HashMap;
 import java.util.List;
 
-public class Databaseish {
+public class Datamanager {
 
     static HashMap<String, Account> accountMap = new HashMap<>();
     static HashMap<String, Transfer> transferMap = new HashMap<>();

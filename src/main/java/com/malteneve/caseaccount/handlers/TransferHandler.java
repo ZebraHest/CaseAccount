@@ -1,6 +1,6 @@
 package com.malteneve.caseaccount.handlers;
 
-import com.malteneve.caseaccount.databaseish.Databaseish;
+import com.malteneve.caseaccount.datamanager.Datamanager;
 import com.malteneve.caseaccount.domain.Account;
 import com.malteneve.caseaccount.domain.Transfer;
 import com.malteneve.caseaccount.requestData.TransferData;
@@ -25,13 +25,13 @@ public class TransferHandler extends Handler<TransferData, ReturnData> {
     }
 
     private void accountExist(String id) throws ValidationException {
-        if(Databaseish.getAccount(id) == null){
+        if(Datamanager.getAccount(id) == null){
             throw new ValidationException("Account "+id+" does not exist.");
         }
     }
 
     private void hasSufficientMoney(TransferData data) throws ValidationException{
-        Double amountAccount = Databaseish.getAccount(data.getFromId()).getAmount();
+        Double amountAccount = Datamanager.getAccount(data.getFromId()).getAmount();
         if(amountAccount < data.getAmount()){
             throw new ValidationException("Account "+data.getFromId()+" does not have enough money. Expected "+data.getAmount()+" but found only "+amountAccount);
         }
@@ -40,9 +40,9 @@ public class TransferHandler extends Handler<TransferData, ReturnData> {
     @Override
     protected ReturnData handleRequest(TransferData data) {
         Transfer transfer = new Transfer(data.getFromId(), data.getToId(), data.getAmount());
-        Databaseish.addTransfer(transfer);
-        Account fromAccount = Databaseish.getAccount(transfer.getFromId());
-        Account toAccount = Databaseish.getAccount(transfer.getToId());
+        Datamanager.addTransfer(transfer);
+        Account fromAccount = Datamanager.getAccount(transfer.getFromId());
+        Account toAccount = Datamanager.getAccount(transfer.getToId());
         Double amount = transfer.getAmount();
 
         fromAccount.addToAmount(-amount);
